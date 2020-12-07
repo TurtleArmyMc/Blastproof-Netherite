@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.turtlearmymc.blastproofnetherite.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ItemEntityMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

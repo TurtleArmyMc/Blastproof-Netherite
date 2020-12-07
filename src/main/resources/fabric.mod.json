@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "blastproof_netherite",
+  "version": "${version}",
+  "name": "Blastproof Netherite",
+  "description": "Prevents Netherite items from being destroyed by explosions.",
+  "authors": [
+    "TurtleArmyMc"
+  ],
+  "contributors": [],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/blastproof-netherite",
+    "sources": "https://github.com/TurtleArmyMc/Blastproof-Netherite"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/blastproof_netherite/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [],
+    "client": [],
+    "server": []
+  },
+  "mixins": [
+    "blastproof_netherite.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.8"
+  }
+}
