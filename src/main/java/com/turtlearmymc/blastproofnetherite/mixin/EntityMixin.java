@@ -2,7 +2,6 @@ package com.turtlearmymc.blastproofnetherite.mixin;
 
 import java.util.stream.Stream;
 
-import org.lwjgl.system.CallbackI.S;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -39,7 +38,8 @@ public abstract class EntityMixin {
             if (!item.getStack().isEmpty() && item.isFireImmune()) {
                 return new ReusableStream<VoxelShape>(Stream.concat(rs.stream(),
                         Stream.of(VoxelShapes.cuboid(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY,
-                                Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 0, Double.POSITIVE_INFINITY))));
+                                Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, item.world.getBottomY(),
+                                Double.POSITIVE_INFINITY))));
             }
         }
         return rs;

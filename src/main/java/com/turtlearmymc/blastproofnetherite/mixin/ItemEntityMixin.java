@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.util.math.Direction;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin {
@@ -15,9 +15,9 @@ public abstract class ItemEntityMixin {
     @Inject(method = "tick()V", at = @At("HEAD"))
     protected void tick(CallbackInfo ci) {
         ItemEntity item = (ItemEntity) (Object) this;
-        if (item.isFireImmune() && item.getY() < 0) {
-            item.setBoundingBox(item.getBoundingBox().offset(0, 0 - item.getY(), 0));
-            item.moveToBoundingBoxCenter();
+        if (item.isFireImmune() && item.getY() < item.world.getBottomY()) {
+            item.setBoundingBox(item.getBoundingBox().offset(0, item.world.getBottomY() - item.getY(), 0));
+            item.setPos(item.getX(), item.getBoundingBox().getMin(Direction.Axis.Y), item.getZ());
             item.setVelocity(item.getVelocity().multiply(1, 0, 1));
         }
     }
