@@ -3,7 +3,7 @@
   "id": "blastproof_netherite",
   "version": "${version}",
   "name": "Blastproof Netherite",
-  "description": "Prevents Netherite items from being destroyed by explosions.",
+  "description": "Prevents fireproof items from being destroyed or lost to the void.",
   "authors": [
     "TurtleArmyMc"
   ],
@@ -24,6 +24,6 @@
     "blastproof_netherite.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.10.8"
+    "fabricloader": ">=0.11.3"
   }
 }

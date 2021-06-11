@@ -3,6 +3,7 @@
   "package": "com.turtlearmymc.blastproofnetherite.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityMixin",
     "ItemEntityMixin"
   ],
   "client": [],
