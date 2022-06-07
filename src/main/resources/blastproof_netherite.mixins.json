@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "com.turtlearmymc.blastproofnetherite.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "EntityMixin",
     "ItemEntityMixin"
