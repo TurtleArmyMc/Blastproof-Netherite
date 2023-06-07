@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 
+import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.damage.DamageTypes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,7 +27,7 @@ public abstract class EntityMixin {
         Entity entity = (Entity) (Object) this;
         if (entity instanceof ItemEntity item) {
             ci.setReturnValue(ci.getReturnValue().booleanValue()
-                    || (!item.getStack().isEmpty() && item.isFireImmune() && !source.isOutOfWorld()));
+                    || (!item.getStack().isEmpty() && item.isFireImmune() && !source.isOf(DamageTypes.OUT_OF_WORLD)));
         }
     }
 
@@ -37,7 +39,7 @@ public abstract class EntityMixin {
                 ImmutableList.Builder<VoxelShape> builder = ImmutableList.builderWithExpectedSize(list.size() + 1);
                 builder.addAll(list);
                 builder.add(VoxelShapes.cuboid(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY,
-                        Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, item.world.getBottomY(),
+                        Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, item.getWorld().getBottomY(),
                         Double.POSITIVE_INFINITY));
                 return builder.build();
             }
